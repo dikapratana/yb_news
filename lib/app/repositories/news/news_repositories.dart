@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:yb_news/app/core/constants/app_api.dart';
-import 'package:yb_news/app/extentions/empty_extention.dart';
 import 'package:yb_news/app/presentation/news/models/news_model.dart';
 
 class NewsRepository {
