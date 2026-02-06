@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; // Tambahkan ini
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yb_news/app/core/components/layout/main_layout.dart';
@@ -9,7 +9,7 @@ import 'package:yb_news/app/core/router/route_constants.dart';
 import 'package:yb_news/app/core/styles/app_colors.dart';
 import 'package:yb_news/app/extentions/space_extention.dart';
 import 'package:yb_news/app/presentation/news/detail/pages/detail_news_skeleton.dart';
-import 'package:yb_news/app/presentation/news/latest/bloc/news_bloc_bloc.dart'; // Import Bloc
+import 'package:yb_news/app/presentation/news/latest/bloc/news_bloc_bloc.dart';
 
 class DetailNewsPage extends HookWidget {
   final String id;
@@ -17,16 +17,11 @@ class DetailNewsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
     final decodedTitle = Uri.decodeComponent(id);
 
-    // Inisialisasi data saat pertama kali buka
     useEffect(() {
       context.read<NewsBlocBloc>().add(
-        FetchNewsEvent(
-          query: '"$decodedTitle"', // Mencari judul yang eksak
-          pageSize: 1,
-        ),
+        FetchNewsEvent(query: '"$decodedTitle"', pageSize: 1),
       );
       return null;
     }, [id]);
@@ -64,7 +59,6 @@ class DetailNewsPage extends HookWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Metadata: Publisher & Time
                   Row(
                     children: [
                       Column(
@@ -87,7 +81,6 @@ class DetailNewsPage extends HookWidget {
                     ],
                   ),
                   16.h,
-                  // Image
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Image.network(
@@ -99,7 +92,6 @@ class DetailNewsPage extends HookWidget {
                     ),
                   ),
                   16.h,
-                  // Category / Source
                   AppText(
                     article.source.name,
                     fontSize: 12,
@@ -108,7 +100,6 @@ class DetailNewsPage extends HookWidget {
                     maxLines: 2,
                   ),
                   8.h,
-                  // Title
                   AppText(
                     article.title,
                     fontSize: 20,
@@ -117,7 +108,6 @@ class DetailNewsPage extends HookWidget {
                     maxLines: 5,
                   ),
                   16.h,
-                  // Content
                   AppText(
                     article.content ??
                         article.description ??

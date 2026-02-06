@@ -55,17 +55,14 @@ class _LargeCardNewsSkeletonState extends State<LargeCardNewsSkeleton>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // ===== IMAGE =====
         box(width: double.infinity, height: 200, radius: 12),
 
         const SizedBox(height: 8),
 
-        // ===== CATEGORY =====
         box(width: 80, height: 14),
 
         const SizedBox(height: 6),
 
-        // ===== TITLE =====
         box(width: double.infinity, height: 16),
 
         const SizedBox(height: 6),
@@ -74,25 +71,20 @@ class _LargeCardNewsSkeletonState extends State<LargeCardNewsSkeleton>
 
         10.h,
 
-        // ===== BOTTOM ROW =====
         Row(
           children: [
-            // logo
             box(width: 20, height: 20, radius: 20),
 
             const SizedBox(width: 8),
 
-            // publisher
             box(width: 90, height: 14),
 
             const SizedBox(width: 12),
 
-            // time icon placeholder
             box(width: 60, height: 14),
 
             const Spacer(),
 
-            // more icon
             box(width: 22, height: 22, radius: 20),
           ],
         ),

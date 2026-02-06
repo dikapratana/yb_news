@@ -14,7 +14,6 @@ class TrendingNewsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Memanggil data saat halaman dibuka
     useEffect(() {
       context.read<TopNewsBloc>().add(LoadTopNews(page: 1));
       return null;
@@ -31,7 +30,6 @@ class TrendingNewsPage extends HookWidget {
           child: Icon(Icons.more_vert, size: 20, color: AppColors.neutral2),
         ),
       ],
-      // Gunakan isScrollable: false karena kita pakai ListView di dalam child
       isScrollable: false,
       child: BlocBuilder<TopNewsBloc, TopNewsState>(
         builder: (context, state) {
@@ -69,7 +67,6 @@ class TrendingNewsPage extends HookWidget {
                     padding: const EdgeInsets.only(bottom: 24),
                     child: InkWell(
                       onTap: () {
-                        // Menggunakan encode judul sebagai ID unik
                         final newsId = Uri.encodeComponent(article.title);
                         context.push('/news/detail/$newsId');
                       },

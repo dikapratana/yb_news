@@ -11,7 +11,6 @@ class DetailNewsSkeleton extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Skeleton Header (Source & Time)
           Row(
             children: [
               Column(
@@ -39,7 +38,6 @@ class DetailNewsSkeleton extends StatelessWidget {
             ],
           ),
           16.h,
-          // Skeleton Image
           Container(
             width: double.infinity,
             height: 250,
@@ -49,7 +47,6 @@ class DetailNewsSkeleton extends StatelessWidget {
             ),
           ),
           16.h,
-          // Skeleton Source Category
           Container(
             width: 100,
             height: 12,
@@ -59,7 +56,6 @@ class DetailNewsSkeleton extends StatelessWidget {
             ),
           ),
           8.h,
-          // Skeleton Title
           Container(
             width: double.infinity,
             height: 22,
@@ -87,7 +83,6 @@ class DetailNewsSkeleton extends StatelessWidget {
             ),
           ),
           16.h,
-          // Skeleton Content (Body Text)
           ...List.generate(6, (index) {
             return Padding(
               padding: const EdgeInsets.only(bottom: 10),

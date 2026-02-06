@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:yb_news/app/core/components/card_news/small_card_news.dart';
 import 'package:yb_news/app/core/components/card_news/small_card_news_skeleton.dart';
 import 'package:yb_news/app/core/components/layout/main_layout.dart';
-import 'package:yb_news/app/core/components/notfound/notfound.dart'; // Tambahkan import ini
+import 'package:yb_news/app/core/components/notfound/notfound.dart';
 import 'package:yb_news/app/core/components/typography/app_text.dart';
 import 'package:yb_news/app/core/styles/app_colors.dart';
 import 'package:yb_news/app/presentation/news/latest/bloc/news_bloc_bloc.dart';
@@ -15,7 +15,6 @@ class LatestNewsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ===== CATEGORY STATE =====
     final categories = [
       'All',
       'business',
@@ -29,12 +28,11 @@ class LatestNewsPage extends HookWidget {
 
     final selectedCategory = useState('All');
 
-    // ===== FUNCTION LOAD NEWS =====
     void loadNews() {
       context.read<NewsBlocBloc>().add(
         FetchNewsEvent(
           page: 1,
-          pageSize: 20, // Bisa disesuaikan jumlahnya
+          pageSize: 20,
           category: selectedCategory.value == 'All'
               ? ''
               : selectedCategory.value,
@@ -42,13 +40,11 @@ class LatestNewsPage extends HookWidget {
       );
     }
 
-    // Refresh data saat kategori berubah
     useEffect(() {
       loadNews();
       return null;
     }, [selectedCategory.value]);
 
-    // ===== WIDGET TAB CATEGORY =====
     Widget buildCategoryTabs() {
       return Container(
         height: 36,
@@ -109,10 +105,8 @@ class LatestNewsPage extends HookWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            // Tabs Kategori
             buildCategoryTabs(),
 
-            // List Berita
             Expanded(
               child: BlocBuilder<NewsBlocBloc, NewsBlocState>(
                 builder: (context, state) {

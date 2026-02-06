@@ -21,7 +21,6 @@ class ImageX extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
-      // Menangani saat gambar sedang proses download
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress == null) return child;
         return SizedBox(
@@ -30,20 +29,15 @@ class ImageX extends StatelessWidget {
           child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
         );
       },
-      // Menangani saat gambar GAGAL dimuat
       errorBuilder: (context, error, stackTrace) {
         return Container(
           width: width,
           height: height,
-          color: Colors.grey[200], // Background abu-abu lembut
+          color: Colors.grey[200],
           child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.broken_image_outlined, // Icon gambar rusak
-                color: Colors.grey,
-                size: 40,
-              ),
+              Icon(Icons.broken_image_outlined, color: Colors.grey, size: 40),
               SizedBox(height: 4),
               Text(
                 'Gagal memuat',

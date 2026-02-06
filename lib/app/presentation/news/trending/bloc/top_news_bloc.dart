@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import 'package:yb_news/app/presentation/news/models/news_model.dart';
 import 'package:yb_news/app/repositories/news/news_repositories.dart';

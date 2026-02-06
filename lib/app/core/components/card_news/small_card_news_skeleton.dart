@@ -56,7 +56,6 @@ class _SmallCardNewsSkeletonState extends State<SmallCardNewsSkeleton>
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
-          // IMAGE
           box(width: 96, height: 96, radius: 8),
 
           const SizedBox(width: 12),
@@ -65,39 +64,32 @@ class _SmallCardNewsSkeletonState extends State<SmallCardNewsSkeleton>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // CATEGORY
                 box(width: 60, height: 12),
 
                 const SizedBox(height: 6),
 
-                // TITLE LINE 1
                 box(width: double.infinity, height: 14),
 
                 const SizedBox(height: 6),
 
-                // TITLE LINE 2
                 box(width: double.infinity, height: 14),
 
                 10.h,
 
                 Row(
                   children: [
-                    // LOGO
                     box(width: 16, height: 16, radius: 20),
 
                     const SizedBox(width: 6),
 
-                    // PUBLISHER
                     box(width: 80, height: 12),
 
                     const Spacer(),
 
-                    // TIME
                     box(width: 50, height: 12),
 
                     const SizedBox(width: 8),
 
-                    // DOT MENU
                     box(width: 18, height: 18, radius: 20),
                   ],
                 ),

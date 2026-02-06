@@ -73,7 +73,6 @@ class LoginPage extends HookWidget {
                           ),
                           16.h,
 
-                          // --- FIELD PASSWORD ---
                           ReactiveTextFieldX(
                             isRequired: true,
                             formControlName: 'password',

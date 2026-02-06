@@ -16,7 +16,6 @@ class DioClient {
       ),
     );
 
-    // Optional: logging interceptor
     _dio.interceptors.add(
       LogInterceptor(
         request: true,
@@ -30,7 +29,6 @@ class DioClient {
   late final Dio _dio;
   final String _baseUrl = "https://example.com/api";
 
-  // GET request
   Future<Response> get(
     String endpoint, {
     Map<String, dynamic>? queryParameters,
@@ -48,7 +46,6 @@ class DioClient {
     }
   }
 
-  // POST request
   Future<Response> post(
     String endpoint, {
     dynamic data,
@@ -68,7 +65,6 @@ class DioClient {
     }
   }
 
-  // Error handler
   Exception _handleDioException(DioException error) {
     if (error.type == DioExceptionType.connectionTimeout) {
       return Exception("Connection Timeout");

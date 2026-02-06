@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:yb_news/app/core/components/layout/main_layout.dart';
 import 'package:yb_news/app/core/components/typography/app_text.dart';
 import 'package:yb_news/app/extentions/opacity_extention.dart';
@@ -21,7 +20,6 @@ class UnderDevelopmentPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Icon atau Ilustrasi
               Container(
                 padding: const EdgeInsets.all(32),
                 decoration: BoxDecoration(

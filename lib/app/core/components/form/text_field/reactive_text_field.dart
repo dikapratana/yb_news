@@ -38,7 +38,6 @@ class ReactiveTextFieldX extends HookWidget {
   final String? formControlName;
   final FormControl? formControl;
 
-  // UI
   final bool? isRequired;
   final String? label;
   final String? hint;
@@ -48,11 +47,9 @@ class ReactiveTextFieldX extends HookWidget {
   final TextAlign textAlign;
   final bool clearable;
 
-  // Input
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
 
-  // Prefix / Suffix
   final Widget? prefix;
   final Widget? suffix;
   final VoidCallback? onPrefixTap;
@@ -61,7 +58,6 @@ class ReactiveTextFieldX extends HookWidget {
   final Function(FormControl)? onChanged;
   final EdgeInsets? contentPadding;
 
-  // Validation
   final Map<String, String Function(Object)>? validationMessages;
 
   @override
@@ -108,7 +104,6 @@ class ReactiveTextFieldX extends HookWidget {
             }
             error.value = formCtrl.invalid;
 
-            // Get error message dari validationMessages
             if (formCtrl.invalid && validationMessages != null) {
               final firstErrorKey = formCtrl.errors.keys.first;
               final errorMsg = validationMessages![firstErrorKey];
@@ -127,22 +122,18 @@ class ReactiveTextFieldX extends HookWidget {
             contentPadding: contentPadding,
             hintText: hint,
             hintStyle: const TextStyle(fontSize: 14, color: Colors.black45),
-            // Hide error message but keep cursor visible
             errorStyle: const TextStyle(fontSize: 0, height: 0),
 
-            // Background color untuk error state
             filled: error.value,
             fillColor: error.value
                 ? AppColors.error.opacityx(0.1)
                 : Colors.transparent,
 
-            /// Default border (when not focused)
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(color: AppColors.neutral2, width: 1),
             ),
 
-            /// Enabled border (when enabled, not focused)
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(
@@ -151,7 +142,6 @@ class ReactiveTextFieldX extends HookWidget {
               ),
             ),
 
-            /// Focused border (when focused)
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(
@@ -162,13 +152,11 @@ class ReactiveTextFieldX extends HookWidget {
               ),
             ),
 
-            /// Error border (when error)
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(color: AppColors.error, width: 1),
             ),
 
-            /// Focused error border
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(color: AppColors.error, width: 1),
@@ -235,7 +223,6 @@ class ReactiveTextFieldX extends HookWidget {
           ),
         ),
 
-        // Error message di bawah input
         if (error.value && errorMessage.value != null) ...[
           Row(
             children: [

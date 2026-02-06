@@ -9,9 +9,8 @@ class MainLayout extends StatelessWidget {
     required this.child,
     this.title = '',
     this.showBackButton = false,
-    this.onBackPressed, // Fungsi kustom untuk tombol back
-    this.canPop =
-        true, // Default true, set false jika ingin cegah back hardware
+    this.onBackPressed,
+    this.canPop = true,
     this.actions,
     this.bottomButton,
     this.isScrollable = true,
@@ -26,7 +25,7 @@ class MainLayout extends StatelessWidget {
   final String title;
   final bool showBackButton;
   final VoidCallback? onBackPressed;
-  final bool canPop; // Tambahkan ini
+  final bool canPop;
   final List<Widget>? actions;
   final Widget? bottomButton;
   final bool isScrollable;
@@ -44,11 +43,9 @@ class MainLayout extends StatelessWidget {
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
 
-        // Jika canPop false, jalankan fungsi onBackPressed kustom
         if (onBackPressed != null) {
           onBackPressed!();
         } else {
-          // Default fallback jika tidak ada onBackPressed kustom
           Navigator.of(context).maybePop();
         }
       },
@@ -58,7 +55,6 @@ class MainLayout extends StatelessWidget {
             ? AppBarx(
                 title: title,
                 showBackButton: showBackButton,
-                // Samakan logic tombol di AppBar dengan hardware back
                 onBackPressed:
                     onBackPressed ?? () => Navigator.of(context).maybePop(),
                 actions: actions,

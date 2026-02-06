@@ -18,13 +18,11 @@ class MyApp extends StatelessWidget {
         colorScheme: const ColorScheme.light(
           primary: AppColors.primary,
           onPrimary: Colors.white,
-          secondary:
-              AppColors.primary, // Sesuaikan jika ingin warna sekunder berbeda
+          secondary: AppColors.primary,
           onSecondary: Colors.white,
           surface: Colors.white,
         ),
 
-        // Biar komponen utama ikut warna
         primaryColor: AppColors.primary,
 
         appBarTheme: const AppBarTheme(

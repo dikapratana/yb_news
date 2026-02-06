@@ -9,12 +9,12 @@ CustomTransitionPage<T> slideTransitionPageBuilder<T>({
   return CustomTransitionPage<T>(
     key: state.pageKey,
     child: child,
-    transitionDuration: const Duration(milliseconds: 300), // Durasi animasi
+    transitionDuration: const Duration(milliseconds: 300),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return SlideTransition(
         position: animation.drive(
           Tween<Offset>(
-            begin: const Offset(1, 0), // Dari kanan
+            begin: const Offset(1, 0),
             end: Offset.zero,
           ).chain(CurveTween(curve: Curves.easeInOut)),
         ),

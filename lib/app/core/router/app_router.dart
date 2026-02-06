@@ -167,9 +167,8 @@ final goRouter = GoRouter(
       ],
     ),
     GoRoute(
-      path: '${RouteConstant.detailNews}/:id', // Tambahkan /:id
+      path: '${RouteConstant.detailNews}/:id',
       pageBuilder: (context, state) {
-        // Ambil parameter id dari URL
         final id = state.pathParameters['id'] ?? '';
 
         return slidePageBuilder(
@@ -179,7 +178,7 @@ final goRouter = GoRouter(
                 NewsBlocBloc(repository: NewsRepository())
                   ..add(FetchNewsEvent()),
             child: DetailNewsPage(id: id),
-          ), // Kirim ID ke constructor page
+          ),
         );
       },
     ),

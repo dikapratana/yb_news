@@ -40,7 +40,6 @@ class ResetPasswordPage extends HookWidget {
                             fontWeight: FontWeight.w900,
                           ),
                           14.h,
-                          // --- FIELD PASSWORD ---
                           ReactiveTextFieldX(
                             isRequired: true,
                             formControlName: 'password',
@@ -63,7 +62,6 @@ class ResetPasswordPage extends HookWidget {
                           ),
                           16.h,
 
-                          // --- FIELD PASSWORD CONFIRMATION ---
                           ReactiveTextFieldX(
                             isRequired: true,
                             formControlName: 'passwordConfirmation',
@@ -80,8 +78,7 @@ class ResetPasswordPage extends HookWidget {
                             validationMessages: {
                               'required': (_) =>
                                   'Konfirmasi password wajib diisi',
-                              'mustMatch': (_) =>
-                                  'Password tidak cocok', // Key ini sangat penting!
+                              'mustMatch': (_) => 'Password tidak cocok',
                             },
                           ),
 

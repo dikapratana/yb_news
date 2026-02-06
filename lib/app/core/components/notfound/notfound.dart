@@ -17,13 +17,10 @@ class NotFound extends StatelessWidget {
   final String title;
   final String message;
 
-  /// Kalau mau pakai image custom (asset/network)
   final Widget? image;
 
-  /// Default pakai icon jika image null
   final IconData icon;
 
-  /// Text tombol action (opsional)
   final String? actionText;
   final VoidCallback? onAction;
 

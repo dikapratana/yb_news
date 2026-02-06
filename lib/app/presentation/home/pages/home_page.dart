@@ -31,7 +31,6 @@ class HomePage extends HookWidget {
     final scrollController = useScrollController();
     final isScrolled = useState(false);
 
-    // ===== CATEGORY STATE =====
     final categories = [
       'All',
       'business',
@@ -45,7 +44,6 @@ class HomePage extends HookWidget {
 
     final selectedCategory = useState('All');
 
-    // ===== FUNCTION LOAD NEWS =====
     void loadNews() {
       context.read<NewsBlocBloc>().add(
         FetchNewsEvent(
@@ -59,34 +57,30 @@ class HomePage extends HookWidget {
       );
     }
 
-    // ===== INIT LOAD =====
     useEffect(() {
       context.read<TopNewsBloc>().add(LoadTopNews(page: 1, pageSize: 1));
       loadNews();
       return null;
     }, []);
 
-    // ===== SEARCH CHANGE =====
     useEffect(() {
       loadNews();
       return null;
     }, [search.value]);
 
-    // ===== REFRESH =====
     Future<void> onRefresh(BuildContext context) async {
       context.read<TopNewsBloc>().add(LoadTopNews(page: 1, pageSize: 1));
       loadNews();
       await Future.delayed(const Duration(milliseconds: 300));
     }
 
-    // ===== WIDGET TAB CATEGORY =====
     Widget buildCategoryTabs() {
       return SizedBox(
         height: 36,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
-          separatorBuilder: (_, __) => const SizedBox(width: 20),
+          separatorBuilder: (_, _) => const SizedBox(width: 20),
           itemBuilder: (context, index) {
             final cat = categories[index];
             final isActive = cat == selectedCategory.value;
@@ -130,7 +124,6 @@ class HomePage extends HookWidget {
       children: [
         16.h,
 
-        // ===== HEADER =====
         Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
@@ -172,7 +165,6 @@ class HomePage extends HookWidget {
           ),
         ),
 
-        // ===== CONTENT =====
         Expanded(
           child: RefreshIndicator(
             onRefresh: () => onRefresh(context),
@@ -218,7 +210,6 @@ class HomePage extends HookWidget {
 
                             return InkWell(
                               onTap: () {
-                                // Menggunakan encode judul sebagai ID unik
                                 final newsId = Uri.encodeComponent(
                                   article.title,
                                 );
@@ -242,7 +233,6 @@ class HomePage extends HookWidget {
                       24.h,
                     ],
 
-                    // ===== TITLE =====
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -263,12 +253,10 @@ class HomePage extends HookWidget {
 
                     12.h,
 
-                    // ===== CATEGORY TAB =====
                     buildCategoryTabs(),
 
                     16.h,
 
-                    // ===== LIST NEWS =====
                     BlocBuilder<NewsBlocBloc, NewsBlocState>(
                       builder: (context, state) {
                         if (state is NewsLoading) {
@@ -306,7 +294,6 @@ class HomePage extends HookWidget {
                                 padding: const EdgeInsets.only(bottom: 16),
                                 child: InkWell(
                                   onTap: () {
-                                    // Navigasi ke detail dengan ID
                                     final newsId = Uri.encodeComponent(
                                       article.title,
                                     );

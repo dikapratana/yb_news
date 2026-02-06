@@ -13,7 +13,6 @@ class HomeLayout extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ambil path lokasi saat ini
     final String location = GoRouterState.of(context).uri.path;
 
     final icons = [
@@ -42,7 +41,6 @@ class HomeLayout extends HookWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: List.generate(icons.length, (index) {
-              // LOGIKA PERBAIKAN DI SINI
               final bool isSelected = routes[index] == "/"
                   ? location == "/"
                   : location.startsWith(routes[index]);

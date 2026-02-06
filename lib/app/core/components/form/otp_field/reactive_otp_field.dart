@@ -18,7 +18,6 @@ class ReactiveOtpField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Gunakan ReactiveFormField (Tanpa kata 'Custom')
     return ReactiveFormField<String, String>(
       formControlName: formControlName,
       validationMessages: validationMessages,
@@ -43,7 +42,6 @@ class ReactiveOtpField extends StatelessWidget {
           children: [
             Pinput(
               length: length,
-              // field.value mengambil nilai dari FormControl
               onChanged: (value) => field.didChange(value),
               defaultPinTheme: defaultPinTheme,
               focusedPinTheme: defaultPinTheme.copyWith(
@@ -56,7 +54,6 @@ class ReactiveOtpField extends StatelessWidget {
                   border: Border.all(color: AppColors.error),
                 ),
               ),
-              // Pemicu warna merah pada kotak pinput
               forceErrorState: isInvalid,
             ),
 
@@ -72,7 +69,6 @@ class ReactiveOtpField extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   AppText(
-                    // field.errorText otomatis mengambil dari validationMessages
                     field.errorText ?? 'Invalid OTP',
                     color: AppColors.error,
                     fontSize: 12,

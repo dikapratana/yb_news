@@ -3,7 +3,6 @@ import 'package:yb_news/app/core/components/typography/app_text.dart';
 import 'package:yb_news/app/core/styles/app_colors.dart';
 import 'package:yb_news/app/extentions/empty_extention.dart';
 
-/// Custom AppBar untuk MainLayout
 class AppBarx extends StatelessWidget implements PreferredSizeWidget {
   const AppBarx({
     super.key,

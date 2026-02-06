@@ -20,7 +20,6 @@ class AppCheckbox extends StatelessWidget {
   final ValueChanged<bool?>? onChanged;
   final String? label;
 
-  // Style
   final Color? activeColor;
   final Color? checkColor;
   final double size;

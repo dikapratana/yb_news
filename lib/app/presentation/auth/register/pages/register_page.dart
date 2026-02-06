@@ -65,7 +65,6 @@ class RegisterPage extends HookWidget {
                           ),
                           16.h,
 
-                          // --- FIELD PASSWORD ---
                           ReactiveTextFieldX(
                             isRequired: true,
                             formControlName: 'password',
@@ -88,7 +87,6 @@ class RegisterPage extends HookWidget {
                           ),
                           16.h,
 
-                          // --- FIELD PASSWORD CONFIRMATION ---
                           ReactiveTextFieldX(
                             isRequired: true,
                             formControlName: 'passwordConfirmation',
@@ -105,8 +103,7 @@ class RegisterPage extends HookWidget {
                             validationMessages: {
                               'required': (_) =>
                                   'Konfirmasi password wajib diisi',
-                              'mustMatch': (_) =>
-                                  'Password tidak cocok', // Key ini sangat penting!
+                              'mustMatch': (_) => 'Password tidak cocok',
                             },
                           ),
 
